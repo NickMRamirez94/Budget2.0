@@ -7,6 +7,7 @@ def menu():
     print "0. Exit"
     print "1. Enter a new expenditure"
     print "2. Print all expenditures from this month"
+    print "3. Save and quit"
     print "--------------------------------------------"
     choice = input("Enter your choice [0-3]:")
     print
@@ -34,13 +35,19 @@ def printList(itemList = []):
 
     print tab
 
+def saveAndQuit(itemList = []):
+    file = open("data.txt", "w")
+
+    for i in range(len(itemList)):
+        file.write("%s %s %s" % (itemList[i].name, itemList[i].price, itemList[i].date) )
+
+    file.close()
+
 def main():
 
     choice = "-1"
 
     itemDB = []
-
-    book = item(20, "The Stand", "3/20/18")
 
     while choice != 0:
 
@@ -52,6 +59,8 @@ def main():
             addItem(itemDB)
         elif choice == 2:
             printList(itemDB)
+        elif choice == 3:
+            saveAndQuit(itemDB)
         else:
             print("\nSorry that is not a valid choice.\n")
 
