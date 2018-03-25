@@ -22,4 +22,4 @@ class item(object):
         self.name = name
     
     def setDate(self, date):
-        self.date = name
+        self.date = date

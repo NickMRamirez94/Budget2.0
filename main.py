@@ -16,8 +16,9 @@ def menu():
 def welcome():
     print
     print "--------------------Welcome--------------------"
-    month = raw_input("Please enter the month you want to view or edit: ")
+    print "Please enter the month you want to view or edit"
     print "-----------------------------------------------"
+    month = raw_input("MONTH: ")
     return month
 
 def addItem(itemList = []):
@@ -43,7 +44,7 @@ def printList(itemList = []):
     print tab
 
 def save(month, itemList = []):
-    file = open(month + ".txt", "w")
+    file = open("BackupData/" + month + ".txt", "w")
 
     for i in range(len(itemList)):
         file.write("%s %s %s" % (itemList[i].name, itemList[i].price, itemList[i].date) )
