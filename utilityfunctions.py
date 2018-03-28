@@ -73,8 +73,16 @@ def save(month, itemList = []):
 
     file.close()
 
-#placeholder for now. Need to finish
 def read(month, itemList = []):
+    #error saying file does not exist
+    file = open("BackupData/" + month + ".txt", "r")
+
+    for line in file.readlines():
+        name, price, date = line.split()
+        
+        #add item to the list
+        itemList.append(item(price, name, date))
+
     return
 
 def sortPrice(itemList = []):
