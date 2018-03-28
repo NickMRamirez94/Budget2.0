@@ -55,8 +55,8 @@ def save(month, itemList = []):
 def sortPrice(itemList = []):
     for i in range(len(itemList)):
         max = i
-        for j in range(len(itemList)):
-            if itemList[j].price < itemList[max].price:
+        for j in range(i + 1, len(itemList)):
+            if itemList[j].price > itemList[max].price:
                 max = j
 
         itemList[i], itemList[max] = itemList[max], itemList[i]
