@@ -30,8 +30,14 @@ def welcome(itemList = []):
 
     #import existing data if there is already backupdata
     if exists:
-        print "hello"
+        print
+        print "--------------------Attention----------------------"
+        print "It looks like there is an existing budget for " + month + "."
+        print "Loading budget data now..."
         read(month, itemList)
+        print ".....done"
+        print "---------------------------------------------------"
+        print
     
     else:
         print
@@ -66,7 +72,7 @@ def printList(itemList = []):
     print tab
 
 def save(month, itemList = []):
-    file = open("BackupData/" + month + ".txt", "w")
+    file = open(month + ".txt", "w")
 
     for i in range(len(itemList)):
         file.write("%s %s %s\n" % (itemList[i].name, itemList[i].price, itemList[i].date) )
@@ -74,8 +80,7 @@ def save(month, itemList = []):
     file.close()
 
 def read(month, itemList = []):
-    #error saying file does not exist
-    file = open("BackupData/" + month + ".txt", "r")
+    file = open(month + ".txt", "r")
 
     for line in file.readlines():
         name, price, date = line.split()
