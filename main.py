@@ -9,11 +9,11 @@ from utilityfunctions import utility
 
 def main():
 
-    month = welcome()
+    itemDB = []
+
+    month = welcome(itemDB)
 
     choice = "-1"
-
-    itemDB = []
 
     while choice != 0:
 
